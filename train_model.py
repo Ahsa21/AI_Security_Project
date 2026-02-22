@@ -21,6 +21,10 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42,
     stratify=y  # IMPORTANT for imbalanced datasets
 )
+
+X_test.to_csv("X_test.csv", index=False)
+y_test.to_csv("y_test.csv", index=False)
+
 pipeline = Pipeline([
     ("scaler", StandardScaler()),
     ("model", RandomForestClassifier(
